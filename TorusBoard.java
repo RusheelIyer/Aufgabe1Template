@@ -199,6 +199,41 @@ public class TorusBoard extends Board {
             playerRow++;
             playerColumn++;
         }
+
+        //checking diagonals in other direction
+        playerRow = row;
+        playerColumn = column;
+        index = 0;
+        while ((playerRow != 0) && (playerColumn != (this.getBoardSize() - 1))) {
+            playerRow--;
+            playerColumn++;
+        }
+        
+        while (index < this.getBoardSize()) {
+            check[0] = super.getState(String.valueOf(playerRow % size), String.valueOf(playerColumn % size));
+            check[1] = super.getState(String.valueOf((playerRow + 1) % size), 
+                    String.valueOf(((((playerColumn - 1) % size)) + size) % size));
+            check[2] = super.getState(String.valueOf((playerRow + 2) % size),
+                    String.valueOf(((((playerColumn - 2) % size)) + size) % size));
+            check[3] = super.getState(String.valueOf((playerRow + 3) % size),
+                    String.valueOf(((((playerColumn - 3) % size)) + size) % size));
+            check[4] = super.getState(String.valueOf((playerRow + 4) % size),
+                    String.valueOf(((((playerColumn - 4) % size)) + size) % size));
+            check[5] = super.getState(String.valueOf((playerRow + 5) % size),
+                    String.valueOf(((((playerColumn - 5) % size)) + size) % size));
+            for (int j = 0; j < check.length; j++) {
+                if (check[j].equals(playerSymbol)) {
+                    trues++;
+                }
+            }
+            if (trues == 6) {
+                return true;
+            }
+            trues = 0;
+            index++;
+            playerRow++;
+            playerColumn--;
+        }
         return false;
     }
 }
