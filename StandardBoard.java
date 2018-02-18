@@ -143,7 +143,7 @@ public class StandardBoard extends Board {
             }
             trues = 0;
             playerRow++;
-            playerColumn++;
+            playerColumn--;
         }
         
         return false;
