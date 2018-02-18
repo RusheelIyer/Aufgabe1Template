@@ -117,6 +117,35 @@ public class StandardBoard extends Board {
             playerRow++;
             playerColumn++;
         }
+
+        //checking diagonals in other direction
+        playerRow = row;
+        playerColumn = column;
+        while ((playerRow != 0) && (playerColumn != (this.getBoardSize() - 1))) {
+            playerRow--;
+            playerColumn++;
+        }
+        
+        while ((playerRow <  (this.getBoardSize() - 5)) && (playerColumn > 5)) {
+            check[0] = super.getState(String.valueOf(playerRow), String.valueOf(playerColumn));
+            check[1] = super.getState(String.valueOf(playerRow + 1), String.valueOf(playerColumn - 1));
+            check[2] = super.getState(String.valueOf(playerRow + 2), String.valueOf(playerColumn - 2));
+            check[3] = super.getState(String.valueOf(playerRow + 3), String.valueOf(playerColumn - 3));
+            check[4] = super.getState(String.valueOf(playerRow + 4), String.valueOf(playerColumn - 4));
+            check[5] = super.getState(String.valueOf(playerRow + 5), String.valueOf(playerColumn - 5));
+            for (int j = 0; j < check.length; j++) {
+                if (check[j].equals(playerSymbol)) {
+                    trues++;
+                }
+            }
+            if (trues == 6) {
+                return true;
+            }
+            trues = 0;
+            playerRow++;
+            playerColumn++;
+        }
+        
         return false;
     }
 }
