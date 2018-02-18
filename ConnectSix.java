@@ -60,9 +60,8 @@ public class ConnectSix {
                         case "state":
                             if (param == null || param.length != 2) {
                                 throw new IllegalArgumentException();
-                            } else {
-                                Terminal.printLine(board.getState(param[0], param[1]));
                             }
+                            Terminal.printLine(board.getState(param[0], param[1]));
                             break;
                         case "reset":
                             if (param != null) {
