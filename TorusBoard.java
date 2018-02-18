@@ -211,41 +211,4 @@ public class TorusBoard extends Board {
         }
         return false;
     }
-    
-    /**
-     * Method to print out the desired row
-     * 
-     * @param row represents the desired row
-     */
-    @Override
-    public void rowPrint(int row) {
-       
-       int rowNumber = row; 
-       if (row < 0 || row >= this.getBoardSize()) {
-           rowNumber = rowNumber % this.getBoardSize();
-           if (rowNumber < 0) {
-               rowNumber = rowNumber + this.getBoardSize(); 
-           }
-       }
-       super.rowPrint(rowNumber);
-    }
-    
-    /**
-     * Method to print out the desired column
-     * 
-     * @param column represents the desired column
-     */
-    @Override
-    public void columnPrint(int column) { 
-        
-        int columnNumber = column;
-        if (column < 0 || column >= this.getBoardSize()) {
-            columnNumber = columnNumber % this.getBoardSize();
-            if (columnNumber < 0) {
-                columnNumber = columnNumber + this.getBoardSize(); 
-            }
-        }
-        super.columnPrint(columnNumber);
-    }
-
 }
