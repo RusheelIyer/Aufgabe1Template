@@ -24,12 +24,12 @@ public class StandardBoard extends Board {
         int trues = 0;
         
         for (int i = 0; i < this.getBoardSize() - 5; i++) {
-            check[0] = this.getBoard()[row][i].getContent();
-            check[1] = this.getBoard()[row][i + 1].getContent();
-            check[2] = this.getBoard()[row][i + 2].getContent();
-            check[3] = this.getBoard()[row][i + 3].getContent();
-            check[4] = this.getBoard()[row][i + 4].getContent();
-            check[5] = this.getBoard()[row][i + 5].getContent();
+            check[0] = super.getState(String.valueOf(row), String.valueOf(i));
+            check[1] = super.getState(String.valueOf(row), String.valueOf(i + 1));
+            check[2] = super.getState(String.valueOf(row), String.valueOf(i + 2));
+            check[3] = super.getState(String.valueOf(row), String.valueOf(i + 3));
+            check[4] = super.getState(String.valueOf(row), String.valueOf(i + 4));
+            check[5] = super.getState(String.valueOf(row), String.valueOf(i + 5));
             
             for (int j = 0; j < check.length; j++) {
                 if (check[j].equals(playerSymbol)) {
@@ -57,12 +57,12 @@ public class StandardBoard extends Board {
         int trues = 0;
         
         for (int i = 0; i < this.getBoardSize() - 5; i++) {
-            check[0] = this.getBoard()[i][column].getContent();
-            check[1] = this.getBoard()[i + 1][column].getContent();
-            check[2] = this.getBoard()[i + 2][column].getContent();
-            check[3] = this.getBoard()[i + 3][column].getContent();
-            check[4] = this.getBoard()[i + 4][column].getContent();
-            check[5] = this.getBoard()[i + 5][column].getContent();
+            check[0] = super.getState(String.valueOf(i), String.valueOf(column));
+            check[1] = super.getState(String.valueOf(i + 1), String.valueOf(column));
+            check[2] = super.getState(String.valueOf(i + 2), String.valueOf(column));
+            check[3] = super.getState(String.valueOf(i + 3), String.valueOf(column));
+            check[4] = super.getState(String.valueOf(i + 4), String.valueOf(column));
+            check[5] = super.getState(String.valueOf(i + 5), String.valueOf(column));
             
             for (int j = 0; j < check.length; j++) {
                 if (check[j].equals(playerSymbol)) {

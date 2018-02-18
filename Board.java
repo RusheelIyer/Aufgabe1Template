@@ -116,15 +116,6 @@ public abstract class Board {
     }
     
     /**
-     * Getter method to get the board, so that it can be seen in the children classes
-     * 
-     * @return the playing surface
-     */
-    public Field[][] getBoard() {
-        return this.board;
-    }
-    
-    /**
      * Checks to see if there are any empty (**) fields on the board
      * 
      * @return true if there are no fields empty.
@@ -178,12 +169,12 @@ public abstract class Board {
         }
         
         while ((playerRow < (this.getBoardSize() - 5)) && (playerColumn < (this.getBoardSize() - 5))) {
-            check[0] = this.getBoard()[playerRow][playerColumn].getContent();
-            check[1] = this.getBoard()[playerRow + 1][playerColumn + 1].getContent();
-            check[2] = this.getBoard()[playerRow + 2][playerColumn + 2].getContent();
-            check[3] = this.getBoard()[playerRow + 3][playerColumn + 3].getContent();
-            check[4] = this.getBoard()[playerRow + 4][playerColumn + 4].getContent();
-            check[5] = this.getBoard()[playerRow + 5][playerColumn + 5].getContent();
+            check[0] = this.board[playerRow][playerColumn].getContent();
+            check[1] = this.board[playerRow + 1][playerColumn + 1].getContent();
+            check[2] = this.board[playerRow + 2][playerColumn + 2].getContent();
+            check[3] = this.board[playerRow + 3][playerColumn + 3].getContent();
+            check[4] = this.board[playerRow + 4][playerColumn + 4].getContent();
+            check[5] = this.board[playerRow + 5][playerColumn + 5].getContent();
             for (int j = 0; j < check.length; j++) {
                 if (check[j].equals(playerSymbol)) {
                     trues++;
