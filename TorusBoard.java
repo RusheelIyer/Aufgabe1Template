@@ -92,20 +92,17 @@ public class TorusBoard extends Board {
     @Override
     public boolean horizontal(int row, String playerSymbol) {
         
+        int size = this.getBoardSize();
         String[] check = new String[6];
         int trues = 0;
-        int rowNumber = row;
-        if (rowNumber >= this.getBoardSize()) {
-            rowNumber = row % this.getBoardSize();
-        }
         
-        for (int i = 0; i < this.getBoardSize() - 5; i++) {
-            check[0] = super.getState(String.valueOf(row), String.valueOf(i));
-            check[1] = super.getState(String.valueOf(row), String.valueOf(i + 1));
-            check[2] = super.getState(String.valueOf(row), String.valueOf(i + 2));
-            check[3] = super.getState(String.valueOf(row), String.valueOf(i + 3));
-            check[4] = super.getState(String.valueOf(row), String.valueOf(i + 4));
-            check[5] = super.getState(String.valueOf(row), String.valueOf(i + 5));
+        for (int i = 0; i < this.getBoardSize(); i++) {
+            check[0] = super.getState(String.valueOf(row % size), String.valueOf(i % size));
+            check[1] = super.getState(String.valueOf(row % size), String.valueOf((i + 1) % size));
+            check[2] = super.getState(String.valueOf(row % size), String.valueOf((i + 2) % size));
+            check[3] = super.getState(String.valueOf(row % size), String.valueOf((i + 3) % size));
+            check[4] = super.getState(String.valueOf(row % size), String.valueOf((i + 4) % size));
+            check[5] = super.getState(String.valueOf(row % size), String.valueOf((i + 5) % size));
             
             for (int j = 0; j < check.length; j++) {
                 if (check[j].equals(playerSymbol)) {
@@ -116,33 +113,6 @@ public class TorusBoard extends Board {
                 return true;
             }
             trues = 0;
-        }
-        
-        int index = 0;
-        while (index < 5) {
-            int column = this.getBoardSize() - 5 + index;
-            int internIndex = 0;
-            while (column < this.getBoardSize()) {
-                check[internIndex] = super.getState(String.valueOf(rowNumber), String.valueOf(column));
-                internIndex++;
-                column++;
-            }
-            while (internIndex < 6) {
-                check[internIndex] = super.getState(String.valueOf(rowNumber), 
-                        String.valueOf(column % this.getBoardSize()));
-                internIndex++;
-                column++;
-            }
-            for (int j = 0; j < check.length; j++) {
-                if (check[j].equals(playerSymbol)) {
-                    trues++;
-                }
-            }
-            if (trues == 6) {
-                return true;
-            }
-            trues = 0;
-            index++;
         }
         return false;
     }
@@ -157,20 +127,17 @@ public class TorusBoard extends Board {
     @Override
     public boolean vertical(int column, String playerSymbol) {
         
+        int size = this.getBoardSize();
         String[] check = new String[6];
         int trues = 0;
-        int columnNumber = column;
-        if (columnNumber >= this.getBoardSize()) {
-            columnNumber = column % this.getBoardSize();
-        }
         
-        for (int i = 0; i < this.getBoardSize() - 5; i++) {
-            check[0] = super.getState(String.valueOf(i), String.valueOf(column));
-            check[1] = super.getState(String.valueOf(i + 1), String.valueOf(column));
-            check[2] = super.getState(String.valueOf(i + 2), String.valueOf(column));
-            check[3] = super.getState(String.valueOf(i + 3), String.valueOf(column));
-            check[4] = super.getState(String.valueOf(i + 4), String.valueOf(column));
-            check[5] = super.getState(String.valueOf(i + 5), String.valueOf(column));
+        for (int i = 0; i < this.getBoardSize(); i++) {
+            check[0] = super.getState(String.valueOf(i % size), String.valueOf(column % size));
+            check[1] = super.getState(String.valueOf((i + 1) % size), String.valueOf(column % size));
+            check[2] = super.getState(String.valueOf((i + 2) % size), String.valueOf(column % size));
+            check[3] = super.getState(String.valueOf((i + 3) % size), String.valueOf(column % size));
+            check[4] = super.getState(String.valueOf((i + 4) % size), String.valueOf(column % size));
+            check[5] = super.getState(String.valueOf((i + 5) % size), String.valueOf(column % size));
             
             for (int j = 0; j < check.length; j++) {
                 if (check[j].equals(playerSymbol)) {
@@ -181,33 +148,6 @@ public class TorusBoard extends Board {
                 return true;
             }
             trues = 0;
-        }
-        
-        int index = 0;
-        while (index < 5) {
-            int row = this.getBoardSize() - 5 + index;
-            int internIndex = 0;
-            while (row < this.getBoardSize()) {
-                check[internIndex] = super.getState(String.valueOf(row), String.valueOf(columnNumber));
-                internIndex++;
-                row++;
-            }
-            while (internIndex < 6) {
-                check[internIndex] = super.getState(String.valueOf(row % this.getBoardSize()), 
-                        String.valueOf(columnNumber));
-                internIndex++;
-                row++;
-            }
-            for (int j = 0; j < check.length; j++) {
-                if (check[j].equals(playerSymbol)) {
-                    trues++;
-                }
-            }
-            if (trues == 6) {
-                return true;
-            }
-            trues = 0;
-            index++;
         }
         return false;
     }
