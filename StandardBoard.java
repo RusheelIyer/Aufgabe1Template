@@ -126,7 +126,7 @@ public class StandardBoard extends Board {
             playerColumn++;
         }
         
-        while ((playerRow <  (this.getBoardSize() - 5)) && (playerColumn > 5)) {
+        while ((playerRow <  (this.getBoardSize() - 5)) && (playerColumn > 4)) {
             check[0] = super.getState(String.valueOf(playerRow), String.valueOf(playerColumn));
             check[1] = super.getState(String.valueOf(playerRow + 1), String.valueOf(playerColumn - 1));
             check[2] = super.getState(String.valueOf(playerRow + 2), String.valueOf(playerColumn - 2));
