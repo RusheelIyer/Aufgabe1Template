@@ -151,4 +151,52 @@ public class TorusBoard extends Board {
         }
         return false;
     }
+
+    /**
+     * Check the diagonal line on which the player last played, to see if the user has won with their last turn
+     * 
+     * @param row represents the row of the position in which the player last placed their piece
+     * @param column represents the column of the position in which the player last placed their piece
+     * @param playerSymbol represents the symbol of the player to last play
+     * @return true if the player has won, false if not
+     */
+    public boolean diagonal(int row, int column, String playerSymbol) {
+        
+        String[] check = new String[6];
+        int trues = 0;
+        int playerRow = row;
+        int playerColumn = column;
+        int size = this.getBoardSize();
+        
+        while (playerRow != 0 && playerColumn != 0) {
+            playerRow--;
+            playerColumn--;
+        }
+        
+        while ((playerRow < this.getBoardSize()) && (playerColumn < this.getBoardSize())) {
+            check[0] = super.getState(String.valueOf(playerRow % size), String.valueOf(playerColumn % size));
+            check[1] = super.getState(String.valueOf((playerRow + 1) % size), 
+                    String.valueOf((playerColumn + 1) % size));
+            check[2] = super.getState(String.valueOf((playerRow + 2) % size),
+                    String.valueOf((playerColumn + 2) % size));
+            check[3] = super.getState(String.valueOf((playerRow + 3) % size),
+                    String.valueOf((playerColumn + 3) % size));
+            check[4] = super.getState(String.valueOf((playerRow + 4) % size),
+                    String.valueOf((playerColumn + 4) % size));
+            check[5] = super.getState(String.valueOf((playerRow + 5) % size),
+                    String.valueOf((playerColumn + 5) % size));
+            for (int j = 0; j < check.length; j++) {
+                if (check[j].equals(playerSymbol)) {
+                    trues++;
+                }
+            }
+            if (trues == 6) {
+                return true;
+            }
+            trues = 0;
+            playerRow++;
+            playerColumn++;
+        }
+        return false;
+    }
 }

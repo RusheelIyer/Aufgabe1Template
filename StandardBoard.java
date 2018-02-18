@@ -78,4 +78,45 @@ public class StandardBoard extends Board {
         
     }
     
+    /**
+     * Check the diagonal line on which the player last played, to see if the user has won with their last turn
+     * 
+     * @param row represents the row of the position in which the player last placed their piece
+     * @param column represents the column of the position in which the player last placed their piece
+     * @param playerSymbol represents the symbol of the player to last play
+     * @return true if the player has won, false if not
+     */
+    public boolean diagonal(int row, int column, String playerSymbol) {
+        
+        String[] check = new String[6];
+        int trues = 0;
+        int playerRow = row;
+        int playerColumn = column;
+        
+        while (playerRow != 0 && playerColumn != 0) {
+            playerRow--;
+            playerColumn--;
+        }
+        
+        while ((playerRow < (this.getBoardSize() - 5)) && (playerColumn < (this.getBoardSize() - 5))) {
+            check[0] = super.getState(String.valueOf(playerRow), String.valueOf(playerColumn));
+            check[1] = super.getState(String.valueOf(playerRow + 1), String.valueOf(playerColumn + 1));
+            check[2] = super.getState(String.valueOf(playerRow + 2), String.valueOf(playerColumn + 2));
+            check[3] = super.getState(String.valueOf(playerRow + 3), String.valueOf(playerColumn + 3));
+            check[4] = super.getState(String.valueOf(playerRow + 4), String.valueOf(playerColumn + 4));
+            check[5] = super.getState(String.valueOf(playerRow + 5), String.valueOf(playerColumn + 5));
+            for (int j = 0; j < check.length; j++) {
+                if (check[j].equals(playerSymbol)) {
+                    trues++;
+                }
+            }
+            if (trues == 6) {
+                return true;
+            }
+            trues = 0;
+            playerRow++;
+            playerColumn++;
+        }
+        return false;
+    }
 }
