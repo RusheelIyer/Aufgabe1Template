@@ -69,6 +69,7 @@ public class ConnectSix {
                                 throw new IllegalArgumentException();
                             }
                             board = (args[0].equals("torus")) ? new TorusBoard(size) : new StandardBoard(size);
+                            break;
                         case "quit":
                             if (param != null) {
                                 throw new IllegalArgumentException();
