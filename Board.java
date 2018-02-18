@@ -184,7 +184,7 @@ public abstract class Board {
      * 
      * @param row represents the desired row
      */
-    public void rowPrint(int row) {
+    public final void rowPrint(int row) {
        try {
            if (row >= this.boardSize || row < 0) {
                throw new IllegalArgumentException();
@@ -205,7 +205,7 @@ public abstract class Board {
      * 
      * @param column represents the desired column
      */
-    public void columnPrint(int column) {
+    public final void columnPrint(int column) {
         try {
             if (column >= this.boardSize || column < 0) {
                 throw new IllegalArgumentException();
