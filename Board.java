@@ -156,39 +156,7 @@ public abstract class Board {
      * @param playerSymbol represents the symbol of the player to last play
      * @return true if the player has won, false if not
      */
-    public boolean diagonal(int row, int column, String playerSymbol) {
-        
-        String[] check = new String[6];
-        int trues = 0;
-        int playerRow = row;
-        int playerColumn = column;
-        
-        while (playerRow != 0 && playerColumn != 0) {
-            playerRow--;
-            playerColumn--;
-        }
-        
-        while ((playerRow < (this.getBoardSize() - 5)) && (playerColumn < (this.getBoardSize() - 5))) {
-            check[0] = this.board[playerRow][playerColumn].getContent();
-            check[1] = this.board[playerRow + 1][playerColumn + 1].getContent();
-            check[2] = this.board[playerRow + 2][playerColumn + 2].getContent();
-            check[3] = this.board[playerRow + 3][playerColumn + 3].getContent();
-            check[4] = this.board[playerRow + 4][playerColumn + 4].getContent();
-            check[5] = this.board[playerRow + 5][playerColumn + 5].getContent();
-            for (int j = 0; j < check.length; j++) {
-                if (check[j].equals(playerSymbol)) {
-                    trues++;
-                }
-            }
-            if (trues == 6) {
-                return true;
-            }
-            trues = 0;
-            playerRow++;
-            playerColumn++;
-        }
-        return false;
-    }
+    public abstract boolean diagonal(int row, int column, String playerSymbol);
     
     /**
      * Combining the horizontal, vertical and diagonal methods to check if the player has one
