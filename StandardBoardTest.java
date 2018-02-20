@@ -92,7 +92,20 @@ class StandardBoardTest {
                     board.setState(String.valueOf(i + j), String.valueOf(j + startColumn), 
                             String.valueOf(i + j + 1), String.valueOf(j + startColumn + 1), "P1");
                 }
-                board.print();
+                assertTrue(board.checkDiagonal(i, startColumn, "P1"));
+                board = new StandardBoard(18);
+            }
+            startColumn++;
+        }
+
+        //reverse diagonal
+        startColumn = 0;
+        while (startColumn < 13) {
+            for (int i = 17; i >= 5; i--) {
+                for (int j = 0; j < 6; j = j + 2) {
+                    board.setState(String.valueOf(i - j), String.valueOf(j + startColumn), 
+                            String.valueOf(i - (j + 1)), String.valueOf(j + startColumn + 1), "P1");
+                }
                 assertTrue(board.checkDiagonal(i, startColumn, "P1"));
                 board = new StandardBoard(18);
             }
@@ -113,7 +126,20 @@ class StandardBoardTest {
                     board.setState(String.valueOf(i + j), String.valueOf(j + startColumn), 
                             String.valueOf(i + j + 1), String.valueOf(j + startColumn + 1), "P1");
                 }
-                board.print();
+                assertTrue(board.checkDiagonal(i, startColumn, "P1"));
+                board = new StandardBoard(20);
+            }
+            startColumn++;
+        }
+
+        //reverse diagonal
+        startColumn = 0;
+        while (startColumn < 13) {
+            for (int i = 19; i >= 5; i--) {
+                for (int j = 0; j < 6; j = j + 2) {
+                    board.setState(String.valueOf(i - j), String.valueOf(j + startColumn), 
+                            String.valueOf(i - (j + 1)), String.valueOf(j + startColumn + 1), "P1");
+                }
                 assertTrue(board.checkDiagonal(i, startColumn, "P1"));
                 board = new StandardBoard(20);
             }
