@@ -21,7 +21,7 @@ public class StandardBoard extends Board {
     public boolean checkHorizontal(int row, String playerSymbol) {
         
         String[] check = new String[6];
-        int trues = 0;
+        String[] symbols = {playerSymbol, playerSymbol, playerSymbol, playerSymbol, playerSymbol, playerSymbol};
         
         for (int i = 0; i < this.getBoardSize() - 5; i++) {
             check[0] = super.getState(String.valueOf(row), String.valueOf(i));
@@ -31,15 +31,9 @@ public class StandardBoard extends Board {
             check[4] = super.getState(String.valueOf(row), String.valueOf(i + 4));
             check[5] = super.getState(String.valueOf(row), String.valueOf(i + 5));
             
-            for (int j = 0; j < check.length; j++) {
-                if (check[j].equals(playerSymbol)) {
-                    trues++;
-                }
-            }
-            if (trues == 6) {
+            if (Arrays.equals(symbols, check)) {
                 return true;
             }
-            trues = 0;
         }
         return false;
     }
@@ -53,8 +47,7 @@ public class StandardBoard extends Board {
      */
     public boolean checkVertical(int column, String playerSymbol) {
         
-        String[] check = new String[6];
-        int trues = 0;
+        String[] symbols = {playerSymbol, playerSymbol, playerSymbol, playerSymbol, playerSymbol, playerSymbol};
         
         for (int i = 0; i < this.getBoardSize() - 5; i++) {
             check[0] = super.getState(String.valueOf(i), String.valueOf(column));
@@ -64,15 +57,9 @@ public class StandardBoard extends Board {
             check[4] = super.getState(String.valueOf(i + 4), String.valueOf(column));
             check[5] = super.getState(String.valueOf(i + 5), String.valueOf(column));
             
-            for (int j = 0; j < check.length; j++) {
-                if (check[j].equals(playerSymbol)) {
-                    trues++;
-                }
-            }
-            if (trues == 6) {
+            if (Arrays.equals(symbols, check)) {
                 return true;
             }
-            trues = 0;
         }
         return false;
         
@@ -89,7 +76,7 @@ public class StandardBoard extends Board {
     public boolean checkDiagonal(int row, int column, String playerSymbol) {
         
         String[] check = new String[6];
-        int trues = 0;
+        String[] symbols = {playerSymbol, playerSymbol, playerSymbol, playerSymbol, playerSymbol, playerSymbol};
         int playerRow = row;
         int playerColumn = column;
         
@@ -105,15 +92,10 @@ public class StandardBoard extends Board {
             check[3] = super.getState(String.valueOf(playerRow + 3), String.valueOf(playerColumn + 3));
             check[4] = super.getState(String.valueOf(playerRow + 4), String.valueOf(playerColumn + 4));
             check[5] = super.getState(String.valueOf(playerRow + 5), String.valueOf(playerColumn + 5));
-            for (int j = 0; j < check.length; j++) {
-                if (check[j].equals(playerSymbol)) {
-                    trues++;
-                }
-            }
-            if (trues == 6) {
+            
+            if (Arrays.equals(symbols, check)) {
                 return true;
             }
-            trues = 0;
             playerRow++;
             playerColumn++;
         }
@@ -133,15 +115,10 @@ public class StandardBoard extends Board {
             check[3] = super.getState(String.valueOf(playerRow + 3), String.valueOf(playerColumn - 3));
             check[4] = super.getState(String.valueOf(playerRow + 4), String.valueOf(playerColumn - 4));
             check[5] = super.getState(String.valueOf(playerRow + 5), String.valueOf(playerColumn - 5));
-            for (int j = 0; j < check.length; j++) {
-                if (check[j].equals(playerSymbol)) {
-                    trues++;
-                }
-            }
-            if (trues == 6) {
+            
+            if (Arrays.equals(symbols, check)) {
                 return true;
             }
-            trues = 0;
             playerRow++;
             playerColumn--;
         }
