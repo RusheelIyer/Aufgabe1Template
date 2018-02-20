@@ -19,7 +19,7 @@ class StandardBoardTest {
                     board.setState(String.valueOf(k), String.valueOf(j), 
                             String.valueOf(k), String.valueOf(j + 1), "P1");
                 }
-                assertTrue(true == board.checkHorizontal(k, "P1"));
+                assertTrue(board.checkHorizontal(k, "P1"));
                 board = new StandardBoard(18);
             }
         }
@@ -37,7 +37,7 @@ class StandardBoardTest {
                     board.setState(String.valueOf(k), String.valueOf(j), 
                             String.valueOf(k), String.valueOf(j + 1), "P1");
                 }
-                assertTrue(true == board.checkHorizontal(k, "P1"));
+                assertTrue(board.checkHorizontal(k, "P1"));
                 board = new StandardBoard(20);
             }
         }
@@ -55,7 +55,7 @@ class StandardBoardTest {
                     board.setState(String.valueOf(j), String.valueOf(k), 
                             String.valueOf(j + 1), String.valueOf(k), "P1");
                 }
-                assertTrue(true == board.checkVertical(k, "P1"));
+                assertTrue(board.checkVertical(k, "P1"));
                 board = new StandardBoard(18);
             }
         }
@@ -73,7 +73,7 @@ class StandardBoardTest {
                     board.setState(String.valueOf(j), String.valueOf(k), 
                             String.valueOf(j + 1), String.valueOf(k), "P1");
                 }
-                assertTrue(true == board.checkVertical(k, "P1"));
+                assertTrue(board.checkVertical(k, "P1"));
                 board = new StandardBoard(20);
             }
         }
