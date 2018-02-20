@@ -156,11 +156,6 @@ public class TorusBoard extends Board {
         int playerColumn = column;
         int size = this.getBoardSize();
         
-        while (playerRow != 0 && playerColumn != 0) {
-            playerRow--;
-            playerColumn--;
-        }
-        
         int index = 0;
         while (index < this.getBoardSize()) {
             check[0] = this.getState(String.valueOf(playerRow % size), String.valueOf(playerColumn % size));
@@ -187,10 +182,6 @@ public class TorusBoard extends Board {
         playerRow = row;
         playerColumn = column;
         index = 0;
-        while ((playerRow != 0) && (playerColumn != (this.getBoardSize() - 1))) {
-            playerRow--;
-            playerColumn++;
-        }
         
         while (index < this.getBoardSize()) {
             check[0] = this.getState(String.valueOf(playerRow % size), String.valueOf(playerColumn % size));
