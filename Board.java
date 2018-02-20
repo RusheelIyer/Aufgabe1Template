@@ -2,8 +2,8 @@ package edu.kit.informatik;
 
 public abstract class Board {
         
-    private Field[][] board;
-    private int boardSize;
+    private final Field[][] board;
+    private final int boardSize;
     private int turns;
     private boolean gameWon;
     
