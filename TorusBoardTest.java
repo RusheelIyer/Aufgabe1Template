@@ -79,4 +79,73 @@ class TorusBoardTest {
         }
     }
 
+    /**
+     * check all possible diagonal combinations in the torus board with board size 18
+     */
+    @Test
+    public void testDiagonal18() {
+        Board board  = new TorusBoard(18);
+        int startColumn = 0;
+        while (startColumn < 18) {
+            for (int i = 0; i < 18; i++) {
+                for (int j = 0; j < 6; j = j + 2) {
+                    board.setState(String.valueOf(i + j), String.valueOf(j + startColumn), 
+                            String.valueOf(i + j + 1), String.valueOf(j + startColumn + 1), "P1");
+                }
+                assertTrue(board.checkDiagonal(i, startColumn, "P1"));
+                board = new TorusBoard(18);
+            }
+            startColumn++;
+        }
+        
+        //reverse diagonal
+        startColumn = 0;
+        while (startColumn < 18) {
+            for (int i = 17; i > -1; i--) {
+                for (int j = 0; j < 6; j = j + 2) {
+                    board.setState(String.valueOf(i - j), String.valueOf(j + startColumn), 
+                            String.valueOf(i - (j + 1)), String.valueOf(j + startColumn + 1), "P1");
+                }
+                board.print();
+                System.out.println(i + " " + startColumn + " " + board.checkDiagonal(i, startColumn, "P1"));
+                assertTrue(board.checkDiagonal(i, startColumn, "P1"));
+                board = new TorusBoard(18);
+            }
+            startColumn++;
+        }
+    }
+    
+    /**
+     * check all possible diagonal combinations in the torus board with board size 20
+     */
+    @Test
+    public void testDiagonal20() {
+        Board board  = new TorusBoard(20);
+        int startColumn = 0;
+        while (startColumn < 20) {
+            for (int i = 0; i < 20; i++) {
+                for (int j = 0; j < 6; j = j + 2) {
+                    board.setState(String.valueOf(i + j), String.valueOf(j + startColumn), 
+                            String.valueOf(i + j + 1), String.valueOf(j + startColumn + 1), "P1");
+                }
+                assertTrue(board.checkDiagonal(i, startColumn, "P1"));
+                board = new TorusBoard(20);
+            }
+            startColumn++;
+        }
+        
+      //reverse diagonal
+        startColumn = 0;
+        while (startColumn < 20) {
+            for (int i = 19; i >= 0; i--) {
+                for (int j = 0; j < 6; j = j + 2) {
+                    board.setState(String.valueOf(i - j), String.valueOf(j + startColumn), 
+                            String.valueOf(i - (j + 1)), String.valueOf(j + startColumn + 1), "P1");
+                }
+                assertTrue(board.checkDiagonal(i, startColumn, "P1"));
+                board = new TorusBoard(20);
+            }
+            startColumn++;
+        }
+    }
 }
