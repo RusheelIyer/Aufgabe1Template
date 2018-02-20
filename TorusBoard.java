@@ -97,12 +97,12 @@ public class TorusBoard extends Board {
         String[] symbols = {playerSymbol, playerSymbol, playerSymbol, playerSymbol, playerSymbol, playerSymbol};
         
         for (int i = 0; i < this.getBoardSize(); i++) {
-            check[0] = super.getState(String.valueOf(row % size), String.valueOf(i % size));
-            check[1] = super.getState(String.valueOf(row % size), String.valueOf((i + 1) % size));
-            check[2] = super.getState(String.valueOf(row % size), String.valueOf((i + 2) % size));
-            check[3] = super.getState(String.valueOf(row % size), String.valueOf((i + 3) % size));
-            check[4] = super.getState(String.valueOf(row % size), String.valueOf((i + 4) % size));
-            check[5] = super.getState(String.valueOf(row % size), String.valueOf((i + 5) % size));
+            check[0] = this.getState(String.valueOf(row % size), String.valueOf(i % size));
+            check[1] = this.getState(String.valueOf(row % size), String.valueOf((i + 1) % size));
+            check[2] = this.getState(String.valueOf(row % size), String.valueOf((i + 2) % size));
+            check[3] = this.getState(String.valueOf(row % size), String.valueOf((i + 3) % size));
+            check[4] = this.getState(String.valueOf(row % size), String.valueOf((i + 4) % size));
+            check[5] = this.getState(String.valueOf(row % size), String.valueOf((i + 5) % size));
             
             if (Arrays.equals(symbols, check)) {
                 return true;
@@ -126,12 +126,12 @@ public class TorusBoard extends Board {
         String[] symbols = {playerSymbol, playerSymbol, playerSymbol, playerSymbol, playerSymbol, playerSymbol};
         
         for (int i = 0; i < this.getBoardSize(); i++) {
-            check[0] = super.getState(String.valueOf(i % size), String.valueOf(column % size));
-            check[1] = super.getState(String.valueOf((i + 1) % size), String.valueOf(column % size));
-            check[2] = super.getState(String.valueOf((i + 2) % size), String.valueOf(column % size));
-            check[3] = super.getState(String.valueOf((i + 3) % size), String.valueOf(column % size));
-            check[4] = super.getState(String.valueOf((i + 4) % size), String.valueOf(column % size));
-            check[5] = super.getState(String.valueOf((i + 5) % size), String.valueOf(column % size));
+            check[0] = this.getState(String.valueOf(i % size), String.valueOf(column % size));
+            check[1] = this.getState(String.valueOf((i + 1) % size), String.valueOf(column % size));
+            check[2] = this.getState(String.valueOf((i + 2) % size), String.valueOf(column % size));
+            check[3] = this.getState(String.valueOf((i + 3) % size), String.valueOf(column % size));
+            check[4] = this.getState(String.valueOf((i + 4) % size), String.valueOf(column % size));
+            check[5] = this.getState(String.valueOf((i + 5) % size), String.valueOf(column % size));
             
             if (Arrays.equals(symbols, check)) {
                 return true;
@@ -163,16 +163,16 @@ public class TorusBoard extends Board {
         
         int index = 0;
         while (index < this.getBoardSize()) {
-            check[0] = super.getState(String.valueOf(playerRow % size), String.valueOf(playerColumn % size));
-            check[1] = super.getState(String.valueOf((playerRow + 1) % size), 
+            check[0] = this.getState(String.valueOf(playerRow % size), String.valueOf(playerColumn % size));
+            check[1] = this.getState(String.valueOf((playerRow + 1) % size), 
                     String.valueOf((playerColumn + 1) % size));
-            check[2] = super.getState(String.valueOf((playerRow + 2) % size),
+            check[2] = this.getState(String.valueOf((playerRow + 2) % size),
                     String.valueOf((playerColumn + 2) % size));
-            check[3] = super.getState(String.valueOf((playerRow + 3) % size),
+            check[3] = this.getState(String.valueOf((playerRow + 3) % size),
                     String.valueOf((playerColumn + 3) % size));
-            check[4] = super.getState(String.valueOf((playerRow + 4) % size),
+            check[4] = this.getState(String.valueOf((playerRow + 4) % size),
                     String.valueOf((playerColumn + 4) % size));
-            check[5] = super.getState(String.valueOf((playerRow + 5) % size),
+            check[5] = this.getState(String.valueOf((playerRow + 5) % size),
                     String.valueOf((playerColumn + 5) % size));
             
             if (Arrays.equals(symbols, check)) {
@@ -193,16 +193,16 @@ public class TorusBoard extends Board {
         }
         
         while (index < this.getBoardSize()) {
-            check[0] = super.getState(String.valueOf(playerRow % size), String.valueOf(playerColumn % size));
-            check[1] = super.getState(String.valueOf((playerRow + 1) % size), 
+            check[0] = this.getState(String.valueOf(playerRow % size), String.valueOf(playerColumn % size));
+            check[1] = this.getState(String.valueOf((playerRow + 1) % size), 
                     String.valueOf(((((playerColumn - 1) % size)) + size) % size));
-            check[2] = super.getState(String.valueOf((playerRow + 2) % size),
+            check[2] = this.getState(String.valueOf((playerRow + 2) % size),
                     String.valueOf(((((playerColumn - 2) % size)) + size) % size));
-            check[3] = super.getState(String.valueOf((playerRow + 3) % size),
+            check[3] = this.getState(String.valueOf((playerRow + 3) % size),
                     String.valueOf(((((playerColumn - 3) % size)) + size) % size));
-            check[4] = super.getState(String.valueOf((playerRow + 4) % size),
+            check[4] = this.getState(String.valueOf((playerRow + 4) % size),
                     String.valueOf(((((playerColumn - 4) % size)) + size) % size));
-            check[5] = super.getState(String.valueOf((playerRow + 5) % size),
+            check[5] = this.getState(String.valueOf((playerRow + 5) % size),
                     String.valueOf(((((playerColumn - 5) % size)) + size) % size));
             
             if (Arrays.equals(symbols, check)) {
