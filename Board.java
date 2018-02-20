@@ -138,7 +138,7 @@ public abstract class Board {
      * @param playerSymbol represents the symbol of the player to last play
      * @return true if the player has won, false if not
      */
-    public abstract boolean horizontal(int row, String playerSymbol);
+    public abstract boolean checkHorizontal(int row, String playerSymbol);
     
     /**
      * Check the vertical column on which the player last played, to see if the user has won with their last turn
@@ -147,7 +147,7 @@ public abstract class Board {
      * @param playerSymbol represents the symbol of the player to last play
      * @return true if the player has won, false if not
      */
-    public abstract boolean vertical(int column, String playerSymbol);
+    public abstract boolean checkVertical(int column, String playerSymbol);
     /**
      * Check the diagonal line on which the player last played, to see if the user has won with their last turn
      * 
@@ -156,7 +156,7 @@ public abstract class Board {
      * @param playerSymbol represents the symbol of the player to last play
      * @return true if the player has won, false if not
      */
-    public abstract boolean diagonal(int row, int column, String playerSymbol);
+    public abstract boolean checkDiagonal(int row, int column, String playerSymbol);
     
     /**
      * Combining the horizontal, vertical and diagonal methods to check if the player has one
@@ -170,9 +170,9 @@ public abstract class Board {
      */
     public final boolean checkWin(int rOne, int cOne, int rTwo, int cTwo, String content) {
         
-        if (this.diagonal(rOne, cOne, content) || this.diagonal(rTwo, cTwo, content)
-                || this.horizontal(rOne, content) || this.horizontal(rTwo, content)
-                || this.vertical(cOne, content) || this.vertical(cTwo, content)) {
+        if (this.checkDiagonal(rOne, cOne, content) || this.checkDiagonal(rTwo, cTwo, content)
+                || this.checkHorizontal(rOne, content) || this.checkHorizontal(rTwo, content)
+                || this.checkVertical(cOne, content) || this.checkVertical(cTwo, content)) {
             this.gameWon = true;
             return true;
         }

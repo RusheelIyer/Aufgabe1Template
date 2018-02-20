@@ -90,7 +90,7 @@ public class TorusBoard extends Board {
      * @return true if the player has won, false if not
      */
     @Override
-    public boolean horizontal(int row, String playerSymbol) {
+    public boolean checkHorizontal(int row, String playerSymbol) {
         
         int size = this.getBoardSize();
         String[] check = new String[6];
@@ -125,7 +125,7 @@ public class TorusBoard extends Board {
      * @return true if the player has won, false if not
      */
     @Override
-    public boolean vertical(int column, String playerSymbol) {
+    public boolean checkVertical(int column, String playerSymbol) {
         
         int size = this.getBoardSize();
         String[] check = new String[6];
@@ -160,7 +160,7 @@ public class TorusBoard extends Board {
      * @param playerSymbol represents the symbol of the player to last play
      * @return true if the player has won, false if not
      */
-    public boolean diagonal(int row, int column, String playerSymbol) {
+    public boolean checkDiagonal(int row, int column, String playerSymbol) {
         
         String[] check = new String[6];
         int trues = 0;
