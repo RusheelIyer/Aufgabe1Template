@@ -144,4 +144,48 @@ class StandardBoardTest {
         }
     }
 
+    /**
+     * Method to test that game returns "draw" when board is full with board size 18
+     */
+    @Test
+    public void testDraw18() {
+        int row = 0;
+        int turn = 1;
+        while (row < 18) {
+            for (int column = 0; column < 18; column = column + 2) {
+                int playerNumber = turn % 3;
+                if (playerNumber == 0) {
+                    playerNumber = 3;
+                }
+                board18.setState(String.valueOf(row), String.valueOf(column), 
+                        String.valueOf(row), String.valueOf(column + 1), "P" + String.valueOf(playerNumber));
+                turn++;
+            }
+            row++;
+        }
+        assertTrue(board18.isFull());
+    }
+    
+    /**
+     * Method to test that game returns "draw" when board is full with board size 20
+     */
+    @Test
+    public void testDraw20() {
+        int row = 0;
+        int turn = 1;
+        while (row < 20) {
+            for (int column = 0; column < 20; column = column + 2) {
+                int playerNumber = turn % 3;
+                if (playerNumber == 0) {
+                    playerNumber = 3;
+                }
+                board20.setState(String.valueOf(row), String.valueOf(column), 
+                        String.valueOf(row), String.valueOf(column + 1), "P" + String.valueOf(playerNumber));
+                turn++;
+            }
+            row++;
+        }
+        board20.print();
+        assertTrue(board20.isFull());
+    }
 }
