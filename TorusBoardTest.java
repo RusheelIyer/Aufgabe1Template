@@ -185,7 +185,6 @@ class TorusBoardTest {
             }
             row++;
         }
-        board20.print();
         assertTrue(board20.isFull());
     }
 }
