@@ -21,10 +21,7 @@ public class ConnectSix {
                 try {
                     String line = Terminal.readLine();
                     String[] command = line.split(" ", 2);
-                    String[] param = null;
-                    if (command.length > 1) {
-                        param = command[1].split(";");
-                    }
+                    String[] param = (command.length > 1) ? command[1].split(";") : null;
                     if (String.valueOf(line.charAt(line.length() - 1)).equals(";")) {
                         throw new IllegalArgumentException();
                     }
@@ -68,6 +65,7 @@ public class ConnectSix {
                                 throw new IllegalArgumentException();
                             }
                             board = (args[0].equals("torus")) ? new TorusBoard(size) : new StandardBoard(size);
+                            Terminal.printLine("OK");
                             break;
                         case "quit":
                             if (param != null) {
