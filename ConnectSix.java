@@ -20,11 +20,11 @@ public class ConnectSix {
             while (!quitProgram) {
                 try {
                     String line = Terminal.readLine();
-                    String[] command = line.split(" ", 2);
-                    String[] param = (command.length > 1) ? command[1].split(";") : null;
-                    if (String.valueOf(line.charAt(line.length() - 1)).equals(";")) {
+                    if (line.length == 0 || String.valueOf(line.charAt(line.length() - 1)).equals(";")) {
                         throw new IllegalArgumentException();
                     }
+                    String[] command = line.split(" ", 2);
+                    String[] param = (command.length > 1) ? command[1].split(";") : null;
                     switch (command[0]) {
                         case "place":
                             if (param == null || param.length != 4) {
