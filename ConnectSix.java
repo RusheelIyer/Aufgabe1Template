@@ -20,7 +20,7 @@ public class ConnectSix {
             while (!quitProgram) {
                 try {
                     String line = Terminal.readLine();
-                    if (line.length == 0 || String.valueOf(line.charAt(line.length() - 1)).equals(";")) {
+                    if (line.length == 0 || line.endsWith(";")) {
                         throw new IllegalArgumentException();
                     }
                     String[] command = line.split(" ", 2);
